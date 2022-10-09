@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!126 &1
+NavMeshProjectSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  areas:
+  - name: Walkable
+    cost: 5
+  - name: Not Walkable
+    cost: 1
+  - name: Jump
+    cost: 2
+  - name: E1
+    cost: 1
+  - name: E2
+    cost: 1
+  - name: E3
+    cost: 1
+  - name: N1
+    cost: 1
+  - name: N2
+    cost: 1
+  - name: N3
+    cost: 1
+  - name: W1
+    cost: 1
+  - name: W2
+    cost: 1
+  - name: W3
+    cost: 1
+  - name: S1
+    cost: 1
+  - name: S2
+    cost: 1
+  - name: S3
+    cost: 1
+  - name: 
+    cost: 1
+  - name: 
+    cost: 1
+  - name: 
+    cost: 1
+  - name: 
+    cost: 1
+  - name: 
+    cost: 1
+  - name: 
+    cost: 1
+  - name: 
+    cost: 1
+  - name: 
+    cost: 1
+  - name: 
+    cost: 1
+  - name: 
+    cost: 1
+  - name: 
+    cost: 1
+  - name: 
+    cost: 1
+  - name: 
+    cost: 1
+  - name: 
+    cost: 1
+  - name: 
+    cost: 1
+  - name: 
+    cost: 1
+  - name: 
+    cost: 1
+  m_LastAgentTypeID: -562324683
+  m_Settings:
+  - serializedVersion: 2
+    agentTypeID: 0
+    agentRadius: 0.5
+    agentHeight: 2
+    agentSlope: 45
+    agentClimb: 0.75
+    ledgeDropHeight: 0
+    maxJumpAcrossDistance: 0
+    minRegionArea: 2
+    manualCellSize: 0
+    cellSize: 0.16666667
+    manualTileSize: 0
+    tileSize: 256
+    accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
+    debug:
+      m_Flags: 0
+  m_SettingNames:
+  - Humanoid

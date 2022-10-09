@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 07db3c8f73fed3a4683f92cf592456d9
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - CN1: {fileID: 4675799917452154616, guid: c83fde4651565344dbd755484bc1a5a8, type: 3}
+  - CN2: {fileID: 4675799917452154616, guid: b3cf28798a3b0e04094081095af644ea, type: 3}
+  - CN3: {fileID: 4675799917452154616, guid: d42f9afe42556c34f8719f6d3640e195, type: 3}
+  - CW1: {fileID: 4675799917452154616, guid: dac38696789da324cac34545ba7ef203, type: 3}
+  - CW2: {fileID: 4675799917452154616, guid: d33ce5fff7bc4bc4aa921c44c0f2c86b, type: 3}
+  - CW3: {fileID: 4675799917452154616, guid: 905875154c2ffb542b2acb5017aa76ba, type: 3}
+  - CE1: {fileID: 4675799917452154616, guid: 1518fe229c6bfb74895961467c19f436, type: 3}
+  - CE2: {fileID: 4675799917452154616, guid: 06aae30e381bc884699162fc072fd4d7, type: 3}
+  - CE3: {fileID: 4675799917452154616, guid: 316e3d85283441a459be3d5216a8c5fa, type: 3}
+  - CS1: {instanceID: 0}
+  - CS2: {instanceID: 0}
+  - CS3: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
