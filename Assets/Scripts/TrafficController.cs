@@ -25,14 +25,46 @@ public class TrafficController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Debug.Log(SocketClient.config.GetType());
+        switch (SocketClient.config)
+        {
+            case 0:
+                removeAll();
+                trafficEast();
+                trafficWest();
+                break;
+            case 1:
+                removeAll();
+                trafficNorth();
+                trafficSouth();
+                break;
+            case 2:
+                removeAll();
+                trafficWest();
+                trafficSouth();
+                break;
+            case 3:
+                removeAll();
+                trafficNorth();
+                trafficSouth();
+                break;
+            default:
+                break;
+        };
         if (Input.GetKeyDown(KeyCode.A))
-        { trafficEast(); }
+        {
+            trafficEast();
+        }
         if (Input.GetKeyDown(KeyCode.S))
         { trafficWest(); }
         if (Input.GetKeyDown(KeyCode.D))
         { trafficNorth(); }
         if (Input.GetKeyDown(KeyCode.F))
         { trafficSouth(); }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            removeAll();
+        }
     }
 
     void removeAll()
@@ -44,22 +76,19 @@ public class TrafficController : MonoBehaviour
     }
     void trafficEast()
     {
-        removeAll();
+
         te.enabled = true;
     }
     void trafficWest()
     {
-        removeAll();
         tw.enabled = true;
     }
     void trafficNorth()
     {
-        removeAll();
         tn.enabled = true;
     }
     void trafficSouth()
     {
-        removeAll();
         ts.enabled = true;
     }
 
