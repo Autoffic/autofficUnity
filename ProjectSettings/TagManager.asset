@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - instantiate
+  - cars
+  - traffic
   layers:
   - Default
   - TransparentFX

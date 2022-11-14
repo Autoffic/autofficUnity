@@ -62,7 +62,7 @@ public class SocketClient : MonoBehaviour
             var recieved = response.GetValue().ToString();
             var deserialized = JsonConvert.DeserializeObject<List<int>>(recieved);
             config = deserialized[0];
-    
+
         });
         socket.On("YOLO_EVENT", (response) =>
         {
@@ -70,89 +70,8 @@ public class SocketClient : MonoBehaviour
             var serialized = recived.ToString();
             var deserialized = JsonConvert.DeserializeObject<List<String>>(serialized);
 
-            switch (deserialized[0].ToString())
-            {
-                case "NORTH":
-                    Debug.Log("CASE: " + deserialized[0]);
-                    switch (deserialized[1].ToString())
-                    {
-                        case "lane0":
-                            _actions.Enqueue(() => CarSpawner.instCN1());
-                            Debug.Log("From lane 1");
-                            break;
-                        case "lane1":
-                            _actions.Enqueue(() => CarSpawner.instCN2());
-                            break;
-                        case "lane2":
-                            _actions.Enqueue(() => CarSpawner.instCN3());
-                            break;
-                        default:
-                            Debug.Log("Invalid Input");
-                            break;
-                    }
-                    break;
-                case "EAST":
-                    Debug.Log("CASE: " + deserialized[0]);
-                    switch (deserialized[1].ToString())
-                    {
-                        case "lane0":
-                            _actions.Enqueue(() => CarSpawner.instCE1());
-                            Debug.Log("From lane 1");
-                            break;
-                        case "lane1":
-                            _actions.Enqueue(() => CarSpawner.instCE2());
-                            break;
-                        case "lane2":
-                            _actions.Enqueue(() => CarSpawner.instCE3());
-                            break;
-                        default:
-                            Debug.Log("Invalid Input");
-                            break;
-                    }
-                    break;
-                case "WEST":
-                    Debug.Log("CASE: " + deserialized[0]);
-                    switch (deserialized[1].ToString())
-                    {
-                        case "lane0":
-                            _actions.Enqueue(() => CarSpawner.instCW1());
-                            Debug.Log("From lane 1");
-                            break;
-                        case "lane1":
-                            _actions.Enqueue(() => CarSpawner.instCW2());
-                            break;
-                        case "lane2":
-                            _actions.Enqueue(() => CarSpawner.instCW3());
-                            break;
-                        default:
-                            Debug.Log("Invalid Input");
-                            break;
-                    }
-                    break;
-                case "SOUTH":
-                    Debug.Log("CASE: " + deserialized[0]);
-                    switch (deserialized[1].ToString())
-                    {
-                        case "lane0":
-                            _actions.Enqueue(() => CarSpawner.instCS1());
-                            Debug.Log("From lane 1");
-                            break;
-                        case "lane1":
-                            _actions.Enqueue(() => CarSpawner.instCS2());
-                            break;
-                        case "lane2":
-                            _actions.Enqueue(() => CarSpawner.instCS3());
-                            break;
-                        default:
-                            Debug.Log("Invalid Input");
-                            break;
-                    }
-                    break;
-                default:
-                    CarSpawner.instCE1();
-                    Debug.Log("IN CE1");
-                    break;
-            }
+            _actions.Enqueue(() => CarSpawner.carInst(deserialized[0].ToString(), deserialized[1].ToString()));
+
         });
 
         Debug.Log("Connecting...");

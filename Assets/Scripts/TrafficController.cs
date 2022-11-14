@@ -25,71 +25,41 @@ public class TrafficController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Debug.Log(SocketClient.config.GetType());
         switch (SocketClient.config)
         {
             case 0:
-                removeAll();
-                trafficEast();
-                trafficWest();
                 break;
             case 1:
-                removeAll();
-                trafficNorth();
-                trafficSouth();
                 break;
             case 2:
-                removeAll();
-                trafficWest();
-                trafficSouth();
                 break;
             case 3:
-                removeAll();
-                trafficNorth();
-                trafficSouth();
                 break;
             default:
                 break;
         };
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            trafficEast();
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        { trafficWest(); }
-        if (Input.GetKeyDown(KeyCode.D))
-        { trafficNorth(); }
-        if (Input.GetKeyDown(KeyCode.F))
-        { trafficSouth(); }
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            removeAll();
-        }
+
     }
 
-    void removeAll()
+    void openAll()
     {
-        te.enabled = false;
-        tw.enabled = false;
-        tn.enabled = false;
-        ts.enabled = false;
-    }
-    void trafficEast()
-    {
+        te.size = new Vector3(0, 0, 0);
+        tw.size = new Vector3(0, 0, 0);
+        ts.size = new Vector3(0, 0, 0);
+        tn.size = new Vector3(0, 0, 0);
 
-        te.enabled = true;
     }
-    void trafficWest()
+
+    void halfClose(BoxCollider traffic)
     {
-        tw.enabled = true;
+        traffic.size = new Vector3(1f, 1f, 2.36f);
+        traffic.center = new Vector3(0, 0.5f, 2.36f);
     }
-    void trafficNorth()
+
+    void close(BoxCollider traffic)
     {
-        tn.enabled = true;
-    }
-    void trafficSouth()
-    {
-        ts.enabled = true;
+        traffic.size = new Vector3(1f, 1f, 7f);
+        traffic.center = new Vector3(0, 0.5f, 0);
     }
 
 }
