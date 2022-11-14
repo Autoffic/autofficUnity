@@ -5,9 +5,6 @@ using UnityEngine.AI;
 
 public class CarMover : MonoBehaviour
 {
-    static public Vector3 postion;
-    static public int areaInt;
-
     NavMeshAgent car;
 
     // Start is called before the first frame update
@@ -15,9 +12,7 @@ public class CarMover : MonoBehaviour
     {
         car = GetComponent<NavMeshAgent>();
 
-        car.areaMask = areaInt;
-
-        car.SetDestination(postion);
+        Debug.Log("End poisition is " + car.destination);
     }
 
     private void FixedUpdate()

@@ -126,10 +126,23 @@ public class CarSpawner : MonoBehaviour
                 break;
 
         }
+        var c1 = Instantiate(car, spawner.transform.position, spawner.transform.rotation);
         destructor = GameObject.Find(destructorPos);
-        Instantiate(car, spawner.transform.position, spawner.transform.rotation);
-        CarMover.areaInt = (1 << NavMesh.GetAreaFromName("Walkable")) + (1 << NavMesh.GetAreaFromName(position));
-        CarMover.postion = destructor.transform.position;
+        c1.transform.parent = GameObject.Find("SocketMap").transform;
+        var nav1 = c1.GetComponent<NavMeshAgent>();
+        nav1.SetDestination(destructor.transform.position);
+        nav1.areaMask = (1 << NavMesh.GetAreaFromName("Walkable")) + (1 << NavMesh.GetAreaFromName(position));
+
+        destructorPos += "N";
+        position += "N";
+        spawner = GameObject.Find(position);
+        var c2 = Instantiate(car, spawner.transform.position, spawner.transform.rotation);
+        destructor = GameObject.Find(destructorPos);
+        c2.transform.parent = GameObject.Find("NormalMap").transform;
+        var nav2 = c2.GetComponent<NavMeshAgent>();
+        Debug.Log("for nav2 destructor is " + destructorPos + " " + destructor.transform.position);
+        nav2.SetDestination(destructor.transform.position);
+        nav2.areaMask = nav1.areaMask;
         SocketClient.carNo[arrayPoint]++;
     }
 

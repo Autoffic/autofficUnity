@@ -22,10 +22,10 @@ public class CarDestructor : MonoBehaviour
         if (other.gameObject.tag == "cars")
         {
             var destination = other.gameObject.GetComponent<NavMeshAgent>().destination;
-            string[] destinations = { "W1'", "W2'", "W3'",
-                                      "N1'", "N2'", "N3'",
-                                      "E1'", "E2'", "E3'",
-                                      "S1'", "S2'", "S3'" };
+            string[] destinations = { "W1'N", "W2'N", "W3'N",
+                                      "N1'N", "N2'N", "N3'N",
+                                      "E1'N", "E2'N", "E3'N",
+                                      "S1'N", "S2'N", "S3'N" };
             var no = 0;
             foreach (string desti in destinations)
             {
