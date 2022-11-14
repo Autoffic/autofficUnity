@@ -86,11 +86,6 @@ public class SocketClient : MonoBehaviour
                 action?.Invoke();
             }
         }
-        // foreach (var Road in Roads)
-        // {
-        //     // Debug.Log("on collision with " + Road.GetComponent<BoxCollider>().name);
-
-        // }
 
         if ((Time.realtimeSinceStartupAsDouble - updatedTime) > 30)
         {
@@ -109,19 +104,4 @@ public class SocketClient : MonoBehaviour
 
 
     }
-
-    private void OnDestroy()
-    {
-
-    }
-    public void valueChanged(string a)
-    {
-        data = a;
-        Debug.Log(data);
-    }
-    public void onCLick()
-    {
-        socket.Emit("traffic", data);
-    }
-
 }
