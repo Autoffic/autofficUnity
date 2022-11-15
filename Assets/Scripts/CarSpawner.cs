@@ -33,6 +33,42 @@ public class CarSpawner : MonoBehaviour
         {
             carInst("SOUTH", "lane2");
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            carInst("EAST", "lane0");
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            carInst("EAST", "lane1");
+        }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            carInst("EAST", "lane2");
+        }
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            carInst("NORTH", "lane0");
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            carInst("NORTH", "lane1");
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            carInst("NORTH", "lane2");
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            carInst("WEST", "lane1");
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            carInst("WEST", "lane2");
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            carInst("WEST", "lane2");
+        }
     }
     static public void carInst(string direction, string lane)
     {
@@ -68,7 +104,6 @@ public class CarSpawner : MonoBehaviour
                 position += "3";
                 break;
             default:
-                Debug.Log("Invalid Input");
                 return;
         }
         spawner = GameObject.Find(position);
@@ -140,7 +175,6 @@ public class CarSpawner : MonoBehaviour
         destructor = GameObject.Find(destructorPos);
         c2.transform.parent = GameObject.Find("NormalMap").transform;
         var nav2 = c2.GetComponent<NavMeshAgent>();
-        Debug.Log("for nav2 destructor is " + destructorPos + " " + destructor.transform.position);
         nav2.SetDestination(destructor.transform.position);
         nav2.areaMask = nav1.areaMask;
         SocketClient.carNo[arrayPoint]++;

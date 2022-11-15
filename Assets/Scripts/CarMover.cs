@@ -11,8 +11,6 @@ public class CarMover : MonoBehaviour
     void Start()
     {
         car = GetComponent<NavMeshAgent>();
-
-        Debug.Log("End poisition is " + car.destination);
     }
 
     private void FixedUpdate()
@@ -23,12 +21,15 @@ public class CarMover : MonoBehaviour
 
         if (Physics.Raycast(transform.position, fwd, out hit, 3.0f))
         {
-            Debug.Log(hit.collider.gameObject.name);
             if (hit.collider.gameObject.name == "Car_1" || hit.collider.tag == "traffic")
             {
                 car.isStopped = true;
             }
         }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
     }
 
 }

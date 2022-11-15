@@ -18,19 +18,19 @@ public class CarDestructor : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log("collided");
         if (other.gameObject.tag == "cars")
         {
             var destination = other.gameObject.GetComponent<NavMeshAgent>().destination;
-            string[] destinations = { "W1'N", "W2'N", "W3'N",
-                                      "N1'N", "N2'N", "N3'N",
-                                      "E1'N", "E2'N", "E3'N",
-                                      "S1'N", "S2'N", "S3'N" };
+            string[] destinations = { "S3'N", "E2'N", "N1'N",
+                                      "E3'N", "S2'N", "W1'N",
+                                      "S3'N", "W2'N", "N1'N",
+                                      "W3'N", "N2'N", "E1'N", };
             var no = 0;
             foreach (string desti in destinations)
             {
                 if (destination == GameObject.Find(desti).gameObject.transform.position)
                 {
+                    Debug.Log("Collided");
                     SocketClient.carNo[no]--;
                 }
                 no++;

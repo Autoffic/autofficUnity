@@ -57,11 +57,9 @@ public class SocketClient : MonoBehaviour
         };
         socket.On("NEXT_CONFIG_READY_EVENT", (response) =>
         {
-            // Debug.Log(response.GetValue());
-            // config = response.GetValue();
             var recieved = response.GetValue().ToString();
-            var deserialized = JsonConvert.DeserializeObject<List<int>>(recieved);
-            config = deserialized[0];
+            var deserialized = JsonConvert.DeserializeObject<int>(recieved);
+            config = deserialized;
 
         });
         socket.On("YOLO_EVENT", (response) =>
@@ -73,7 +71,6 @@ public class SocketClient : MonoBehaviour
             _actions.Enqueue(() => CarSpawner.carInst(deserialized[0].ToString(), deserialized[1].ToString()));
 
         });
-
         Debug.Log("Connecting...");
         socket.Connect();
     }
@@ -89,19 +86,11 @@ public class SocketClient : MonoBehaviour
 
         if ((Time.realtimeSinceStartupAsDouble - updatedTime) > 30)
         {
-            Debug.Log(JsonConvert.SerializeObject(carNo));
-            Debug.Log("30 seconds gone");
-            int x = 0;
-            foreach (int car in carNo)
-            {
-                Debug.Log("Index " + x + " is " + carNo[x]);
-                x++;
-            }
             socket.Emit("LIGHT_CHANGE_NEEDED_EVENT", JsonConvert.SerializeObject(carNo));
             updatedTime = Time.realtimeSinceStartupAsDouble;
 
         }
-
-
     }
+
+
 }
