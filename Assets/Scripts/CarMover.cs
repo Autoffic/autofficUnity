@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class CarMover : MonoBehaviour
 {
     NavMeshAgent car;
-
+    public string endPoint =
+    "";
     // Start is called before the first frame update
     void Start()
     {

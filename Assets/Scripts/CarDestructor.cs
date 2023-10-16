@@ -8,7 +8,6 @@ public class CarDestructor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -20,7 +19,8 @@ public class CarDestructor : MonoBehaviour
     {
         if (other.gameObject.tag == "cars")
         {
-            var destination = other.gameObject.GetComponent<NavMeshAgent>().destination;
+            var destination = other.gameObject.GetComponent<CarMover>().endPoint;
+            Debug.Log(destination);
             string[] destinations = { "S3'N", "E2'N", "N1'N",
                                       "E3'N", "S2'N", "W1'N",
                                       "S3'N", "W2'N", "N1'N",
@@ -28,13 +28,15 @@ public class CarDestructor : MonoBehaviour
             var no = 0;
             foreach (string desti in destinations)
             {
-                if (destination == GameObject.Find(desti).gameObject.transform.position)
+                if (destination == desti)
                 {
                     Debug.Log("Collided");
                     SocketClient.carNo[no]--;
                 }
                 no++;
             }
+            Debug.Log("Destroyed");
+            Debug.Log(destination);
             Destroy(other.gameObject);
         }
     }

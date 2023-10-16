@@ -59,11 +59,11 @@ public class CarSpawner : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            carInst("WEST", "lane1");
+            carInst("WEST", "lane0");
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            carInst("WEST", "lane2");
+            carInst("WEST", "lane1");
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -77,7 +77,6 @@ public class CarSpawner : MonoBehaviour
         {
             case "NORTH":
                 position += "N";
-
                 break;
             case "EAST":
                 position += "E";
@@ -167,10 +166,11 @@ public class CarSpawner : MonoBehaviour
         var nav1 = c1.GetComponent<NavMeshAgent>();
         nav1.SetDestination(destructor.transform.position);
         nav1.areaMask = (1 << NavMesh.GetAreaFromName("Walkable")) + (1 << NavMesh.GetAreaFromName(position));
-
+        Debug.Log(destructorPos);
         destructorPos += "N";
         position += "N";
         spawner = GameObject.Find(position);
+        c1.GetComponent<CarMover>().endPoint = destructorPos;
         var c2 = Instantiate(car, spawner.transform.position, spawner.transform.rotation);
         destructor = GameObject.Find(destructorPos);
         c2.transform.parent = GameObject.Find("NormalMap").transform;
@@ -178,6 +178,8 @@ public class CarSpawner : MonoBehaviour
         nav2.SetDestination(destructor.transform.position);
         nav2.areaMask = nav1.areaMask;
         SocketClient.carNo[arrayPoint]++;
+        c2.GetComponent<CarMover>().endPoint = destructorPos;
+
     }
 
 }
